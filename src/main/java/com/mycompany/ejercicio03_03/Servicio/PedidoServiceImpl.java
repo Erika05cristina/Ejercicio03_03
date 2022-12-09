@@ -18,6 +18,7 @@ public class PedidoServiceImpl implements PedidoService{
     public PedidoServiceImpl(List<Pedido> pedidoList) {
         this.pedidoList = new ArrayList<>();
     }
+    
             
     @Override
     public void crearPedido(Pedido pedido) {
@@ -29,5 +30,16 @@ public class PedidoServiceImpl implements PedidoService{
     public List<Pedido> listar() {
        return this.pedidoList;
     }
-    
+
+    @Override
+    public int buscarPorCodigo(int codigo) {
+       int retorno=0;
+        for(var pedido:this.pedidoList){
+            if(codigo == pedido.getCodigoPedido()){
+                retorno=pedido.getCodigoPedido();
+                break;
+            }
+        }
+        return retorno;
+    }    
 }

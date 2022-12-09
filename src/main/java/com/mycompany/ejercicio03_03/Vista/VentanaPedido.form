@@ -148,7 +148,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mercaderia"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo de mercaderia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">

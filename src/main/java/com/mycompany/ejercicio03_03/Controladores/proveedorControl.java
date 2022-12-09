@@ -5,6 +5,7 @@
 package com.mycompany.ejercicio03_03.Controladores;
 
 import com.mycompany.ejercicio03_03.Modelo.Proveedor;
+import com.mycompany.ejercicio03_03.Servicio.PedidoServiceImpl;
 import com.mycompany.ejercicio03_03.Servicio.ProveedorServiceImpl;
 import java.util.List;
 
@@ -15,16 +16,18 @@ import java.util.List;
 public class proveedorControl {
 
     private ProveedorServiceImpl proveedorServiceImpl = new ProveedorServiceImpl();
+    private PedidoServiceImpl pedidoServiceImpl;
 
-    public String crearProveedor(String[] dataProveedor) {
+    public String crearProveedor(String[] dataProveedor, Object[] dataP) {
 
         var retorno = ("No se pudo crear el Producto");
         var valida = true;
         var cedula = dataProveedor[0];
         var nombre = dataProveedor[1];
         var ruta = dataProveedor[2];
-        var horaIngreso = Integer.valueOf(dataProveedor[3]).intValue();
-        var horaSalida = Integer.valueOf(dataProveedor[4]).intValue();
+        var horaIngreso = dataP[0];
+        var horaSalida = dataP[1];
+        var codigoPedido = this.pedidoServiceImpl.buscarPorCodigo(Integer.valueOf(dataProveedor[3]).intValue());;
 
         if (validaCedula(cedula) != 10) {
             retorno += "\n Cedula incorrecta";
@@ -42,7 +45,7 @@ public class proveedorControl {
         }
 
         if (valida == true) {
-            var proveedor = new Proveedor(cedula, nombre, ruta, horaIngreso, horaSalida);
+            var proveedor = new Proveedor(cedula,nombre,ruta,horaIngreso,horaSalida,codigoPedido);
             this.proveedorServiceImpl.crearProveedor(proveedor);
         }
         return retorno;

@@ -12,16 +12,20 @@ public class Proveedor {
     private String cedula;
     private String nombre;
     private String ruta;
-    private int horaIngreso;
-    private int horaSalida;
+    private Object horaIngreso;
+    private Object horaSalida;
+    private Pedido codigoPedido;
 
-    public Proveedor(String cedula, String nombre, String ruta, int horaIngreso, int horaSalida) {
+    public Proveedor(String cedula, String nombre, String ruta, Object horaIngreso, 
+            Object horaSalida, Pedido codigoPedido) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.ruta = ruta;
         this.horaIngreso = horaIngreso;
         this.horaSalida = horaSalida;
+        this.codigoPedido = codigoPedido;
     }
+    
 
     public String getCedula() {
         return cedula;
@@ -47,7 +51,7 @@ public class Proveedor {
         this.ruta = ruta;
     }
 
-    public int getHoraIngreso() {
+    public Object getHoraIngreso(Object horaIngreso) {
         return horaIngreso;
     }
 
@@ -55,7 +59,7 @@ public class Proveedor {
         this.horaIngreso = horaIngreso;
     }
 
-    public int getHoraSalida() {
+    public Object getHoraSalida(Object horaSalida) {
         return horaSalida;
     }
 
@@ -63,13 +67,22 @@ public class Proveedor {
         this.horaSalida = horaSalida;
     }
 
+    public Pedido getPedido() {
+        return codigoPedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.codigoPedido = pedido;
+    }
+
     @Override
     public String toString() {
         return "Proveedor{" + "cedula=" + cedula + ", nombre=" + nombre 
                 + ", ruta=" + ruta + ", horaIngreso=" + horaIngreso 
-                + ", horaSalida=" + horaSalida + '}';
+                + ", horaSalida=" + horaSalida + ", "+ codigoPedido.getCodigoPedido()+ '}';
     }
-    
+
+  
     
     
 }

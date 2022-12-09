@@ -26,7 +26,7 @@ public class pedidoControl {
         var codigo = Integer.valueOf(dataPedido[0]).intValue();
         var nombreComprador = dataPedido[1];
         var totalSinIva = Float.valueOf(dataPedido[2]).floatValue();
-        var tipoDeMercaderia = this.productoServiceImpl.buscarNombre(Integer.valueOf(dataPedido[3]).intValue());
+        var tipoDeMercaderia = this.productoServiceImpl.buscarCodigo(Integer.valueOf(dataPedido[3]).intValue());
         var observaciones = dataPedido[4];
         var nombreProducto = producto;
 
@@ -44,7 +44,6 @@ public class pedidoControl {
             retorno += "\n Precio Incorrecto";
             valida = false;
         }
-
 
         if (valida==true) {         
             var pedido = new Pedido (codigo, 

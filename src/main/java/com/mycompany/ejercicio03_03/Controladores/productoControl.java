@@ -25,6 +25,7 @@ public class productoControl {
         var nombre = dataProducto[1];
         var cantidad = Integer.valueOf(dataProducto[2]).intValue();
         var precio = Double.valueOf(dataProducto[3]).doubleValue();
+        
 
         if (validaCodigo(codigo) == false) {
             retorno += "\n Codigo Incorrecto";
@@ -46,13 +47,13 @@ public class productoControl {
             valida = false;
         }
 
-        /*if (valida==true) {
+        if (valida==true) {
                 
-            var pedido = new Pedido (codigo, nombreComprador, totalSinIva, tipoDeMercaderia, observaciones, nombreProducto);
+            var producto = new Producto (codigo, nombre, cantidad, precio);
             this.productoServiceImpl.crearProducto (producto);
             
         }
-         */
+         
     }
 
     public boolean validaCodigo(int codigo) {

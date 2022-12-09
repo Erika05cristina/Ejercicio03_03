@@ -29,11 +29,11 @@ public class ProductoServiceImpl implements ProductoService {
     }
    
     @Override
-    public Producto buscarNombre(int codigo) {
-      Producto retorno=null;
+    public int buscarCodigo(int codigo) {
+      int retorno =0;
         for(var producto:this.productoList){
             if(codigo==producto.getCodigo()){
-                retorno=producto;
+                retorno=producto.getCodigo();
                 break;
             }
         }

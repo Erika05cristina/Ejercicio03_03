@@ -15,6 +15,8 @@ public interface PedidoService {
 
     public void crearPedido(Pedido pedido);
 
+    public int buscarPorCodigo(int codigo);
+
     public List<Pedido> listar();
 
 }

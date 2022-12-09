@@ -10,19 +10,19 @@ package com.mycompany.ejercicio03_03.Modelo;
  */
 public class Pedido {
     private int codigoPedido; 
-    private String nombreContador; 
+    private String nombreComprador; 
     private float totalSinIva;
-    private String tipoDeMercaderia;
+    private int tipoDeMercaderia;
     private String observaciones;
     private Producto codigoProducto;
     
     
 
-    public Pedido(int codigoPedido, String nombreContador, float totalSinIva, 
-            String tipoDeMercaderia, String observaciones, Producto codigoProducto) {
+    public Pedido(int codigoPedido, String nombreComprador, float totalSinIva, 
+            int tipoDeMercaderia, String observaciones, Producto codigoProducto) {
         
         this.codigoPedido = codigoPedido;
-        this.nombreContador = nombreContador;
+        this.nombreComprador = nombreComprador;
         this.totalSinIva = totalSinIva;
         this.tipoDeMercaderia = tipoDeMercaderia;
         this.observaciones = observaciones;
@@ -37,12 +37,12 @@ public class Pedido {
         this.codigoPedido = codigoPedido;
     }
 
-    public String getNombreContador() {
-        return nombreContador;
+    public String getNombreComprador() {
+        return nombreComprador;
     }
 
-    public void setNombreContador(String nombreContador) {
-        this.nombreContador = nombreContador;
+    public void setNombreComprador(String nombreComprador) {
+        this.nombreComprador = nombreComprador;
     }
 
     public float getTotalSinIva() {
@@ -53,11 +53,11 @@ public class Pedido {
         this.totalSinIva = totalSinIva;
     }
 
-    public String getTipoDeMercaderia() {
+    public int getTipoDeMercaderia() {
         return tipoDeMercaderia;
     }
 
-    public void setTipoDeMercaderia(String tipoDeMercaderia) {
+    public void setTipoDeMercaderia(int tipoDeMercaderia) {
         this.tipoDeMercaderia = tipoDeMercaderia;
     }
 
@@ -73,14 +73,15 @@ public class Pedido {
         return codigoProducto;
     }
 
-    public void setCodigoProducto(Producto nombreProducto) {
-        this.codigoProducto = nombreProducto;
+    public void setCodigoProducto(Producto codigoProducto) {
+        this.codigoProducto = codigoProducto;
     }
 
+   
     @Override
     public String toString() {
         return "Pedido{" + "codigoPedido=" + codigoPedido + ", nombreContador=" 
-                + nombreContador + ", totalSinIva=" + totalSinIva 
+                + nombreComprador + ", totalSinIva=" + totalSinIva 
                 + ", tipoDeMercaderia=" + tipoDeMercaderia + ", observaciones=" 
                 + observaciones + codigoProducto.getCodigo()+ '}';
     }

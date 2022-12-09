@@ -13,18 +13,13 @@ public class Producto {
     private String nombre; 
     private int cantidad;
     private double precio;
-    private static final double iva = 0.12 ;
-    private Proveedor nombreProveedor;
-    private String tipoProducto;
-    
-    public Producto(int codigo, String nombre, int cantidad, double precio,Proveedor nombreProveedor) {
+
+    public Producto(int codigo, String nombre, int cantidad, double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
-        this.nombreProveedor = nombreProveedor;
     }
-    
 
     public int getCodigo() {
         return codigo;
@@ -57,6 +52,10 @@ public class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+  
+    
+  
 
     @Override
     public String toString() {

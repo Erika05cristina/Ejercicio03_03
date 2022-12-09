@@ -5,6 +5,7 @@
 package com.mycompany.ejercicio03_03.Vista;
 
 import com.mycompany.ejercicio03_03.Controladores.pedidoControl;
+import com.mycompany.ejercicio03_03.Modelo.Pedido;
 
 /**
  *
@@ -12,6 +13,7 @@ import com.mycompany.ejercicio03_03.Controladores.pedidoControl;
  */
 public class VentanaPedido extends javax.swing.JFrame {
     private pedidoControl pedidoControl = new pedidoControl();
+    
 
     /**
      * Creates new form VentanaPedido
@@ -53,7 +55,7 @@ public class VentanaPedido extends javax.swing.JFrame {
 
         jLabel3.setText("Total sin IVA");
 
-        jLabel4.setText("Mercaderia");
+        jLabel4.setText("Código de mercaderia");
 
         jLabel5.setText("Observaciones");
 
@@ -167,24 +169,18 @@ public class VentanaPedido extends javax.swing.JFrame {
 
     private void btMostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMostarActionPerformed
 
-        for(var viaje: this.pedidoControl.listar()){
-            System.out.println("*Pedido- "+ this.pedido.toString());
-            
-        }     
-        this.limpiarDatosIngresados();
 
     }//GEN-LAST:event_btMostarActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
-        String[] data = new String[4];
-        data[0] = this.txtCodigo.getText();
-        data[1] = this.txtNombreComprador.getText();
-        data[2] = this.txtTotalSinIva.getText();
-        data[3] = this.txtTipoMercaderia.getText();
-        data[4] = this.txtObservaciones.getText();
-
-        this.pedidoControl.crearPedido(data[0],data[1],data[3],data[4]);
-        this.limpiarDatosIngresados();
+        String dataPedido[] = new String[5];
+        dataPedido[0] = this.txtCodigo.getText();
+        dataPedido[1] = this.txtNombreComprador.getText();
+        dataPedido[2] = this.txtTotalSinIva.getText();
+        dataPedido[3] = this.txtTipoMercaderia.getText();
+        dataPedido[4] = this.txtObservaciones.getText();
+        
+        
     }//GEN-LAST:event_btGuardarActionPerformed
     private void limpiarDatosIngresados() {
         this.txtCodigo.setText("");

@@ -4,11 +4,15 @@
  */
 package com.mycompany.ejercicio03_03.Vista;
 
+import com.mycompany.ejercicio03_03.Controladores.proveedorControl;
+import com.mycompany.ejercicio03_03.Modelo.Proveedor;
+
 /**
  *
  * @author Usuario R
  */
 public class VentanaProveedor extends javax.swing.JFrame {
+    private proveedorControl proveedorControl = new proveedorControl();
 
     /**
      * Creates new form VentanaProveedor
@@ -35,10 +39,12 @@ public class VentanaProveedor extends javax.swing.JFrame {
         txtCedula = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtRuta = new javax.swing.JTextField();
-        txtHoraIngreso = new javax.swing.JTextField();
-        txtHoraSalida = new javax.swing.JTextField();
         btGuardar = new javax.swing.JButton();
         btMostrar = new javax.swing.JButton();
+        cbHoraIngreso = new javax.swing.JComboBox<>();
+        cbHoraSalida = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        txtCodigoPedido = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,13 +69,26 @@ public class VentanaProveedor extends javax.swing.JFrame {
 
         txtRuta.setColumns(15);
 
-        txtHoraIngreso.setColumns(15);
-
-        txtHoraSalida.setColumns(15);
-
         btGuardar.setText("Guardar");
+        btGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGuardarActionPerformed(evt);
+            }
+        });
 
         btMostrar.setText("Mostrar");
+
+        cbHoraIngreso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", " " }));
+
+        cbHoraSalida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "4:00", "5:00", "6:00" }));
+
+        jLabel6.setText("Código del Pedido");
+
+        txtCodigoPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoPedidoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,7 +97,11 @@ public class VentanaProveedor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCodigoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
@@ -89,19 +112,18 @@ public class VentanaProveedor extends javax.swing.JFrame {
                                 .addComponent(txtCedula)
                                 .addComponent(txtNombre)
                                 .addComponent(txtRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(btGuardar)
+                            .addGap(89, 89, 89)
+                            .addComponent(btMostrar))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel5))
                             .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtHoraIngreso)
-                                .addComponent(txtHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btGuardar)
-                        .addGap(89, 89, 89)
-                        .addComponent(btMostrar)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cbHoraIngreso, 0, 179, Short.MAX_VALUE)
+                                .addComponent(cbHoraSalida, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,16 +144,20 @@ public class VentanaProveedor extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtHoraIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbHoraIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(97, 97, 97)
+                    .addComponent(cbHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtCodigoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btGuardar)
                     .addComponent(btMostrar))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,6 +177,26 @@ public class VentanaProveedor extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
+        String dataProveedor[] = new String[3];
+        Object dataP[] = new Object[2];
+        dataProveedor[0] = this.txtCedula.getText();
+        dataProveedor[1] = this.txtNombre.getText();
+        dataProveedor[2] = this.txtRuta.getText();
+        dataProveedor[3] = this.txtCodigoPedido.getText();
+        dataP[0] = this.cbHoraIngreso.getSelectedItem();
+        dataP[1] = this.cbHoraSalida.getSelectedItem();
+        
+        this.proveedorControl.crearProveedor(dataProveedor,dataP);
+        
+        
+ 
+    }//GEN-LAST:event_btGuardarActionPerformed
+
+    private void txtCodigoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoPedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,15 +236,17 @@ public class VentanaProveedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btGuardar;
     private javax.swing.JButton btMostrar;
+    private javax.swing.JComboBox<String> cbHoraIngreso;
+    private javax.swing.JComboBox<String> cbHoraSalida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtHoraIngreso;
-    private javax.swing.JTextField txtHoraSalida;
+    private javax.swing.JTextField txtCodigoPedido;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRuta;
     // End of variables declaration//GEN-END:variables

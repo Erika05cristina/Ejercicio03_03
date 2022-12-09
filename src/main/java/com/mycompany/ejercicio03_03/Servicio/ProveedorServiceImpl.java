@@ -4,6 +4,7 @@
  */
 package com.mycompany.ejercicio03_03.Servicio;
 
+import com.mycompany.ejercicio03_03.Modelo.Producto;
 import com.mycompany.ejercicio03_03.Modelo.Proveedor;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 public class ProveedorServiceImpl implements ProveedorService {
     private static List<Proveedor> proveedorList = new ArrayList<>();
+    private static List<Producto> productoList = new ArrayList<>();
     
     
     @Override
@@ -27,6 +29,17 @@ public class ProveedorServiceImpl implements ProveedorService {
         return this.proveedorList;
         
     }
+
+    @Override
+    public Producto buscarProducto(Producto producto) {
+        Producto retorno=null;
+        for(var producto:this.productoList){
+            if(producto==producto.getCodigo()){
+                retorno=producto.getCodigo();
+                break;
+            }
+        }
+        }
     
     
     
