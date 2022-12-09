@@ -7,6 +7,7 @@ package com.mycompany.ejercicio03_03.Controladores;
 import com.mycompany.ejercicio03_03.Modelo.Pedido;
 import com.mycompany.ejercicio03_03.Modelo.Producto;
 import com.mycompany.ejercicio03_03.Servicio.PedidoServiceImpl;
+import com.mycompany.ejercicio03_03.Servicio.ProductoServiceImpl;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ import java.util.List;
 public class pedidoControl {
 
     private PedidoServiceImpl pedidoServiceImpl;
+    private ProductoServiceImpl productoServiceImpl;
 
     public void crearPedido(String[] dataPedido, Producto producto) {
 
@@ -24,7 +26,7 @@ public class pedidoControl {
         var codigo = Integer.valueOf(dataPedido[0]).intValue();
         var nombreComprador = dataPedido[1];
         var totalSinIva = Float.valueOf(dataPedido[2]).floatValue();
-        var tipoDeMercaderia = dataPedido[3];
+        var tipoDeMercaderia = this.productoServiceImpl.buscarNombre(Integer.valueOf(dataPedido[3]).intValue());
         var observaciones = dataPedido[4];
         var nombreProducto = producto;
 
@@ -43,10 +45,6 @@ public class pedidoControl {
             valida = false;
         }
 
-        if (validatipoMercaderia(tipoDeMercaderia) == false) {
-            retorno += "\n Mercaderia no encontrada";
-            valida = false;
-        }
 
         if (valida==true) {         
             var pedido = new Pedido (codigo, 
@@ -126,36 +124,6 @@ public class pedidoControl {
 
         return retorno;
 
-    }
-
-    public boolean validatipoMercaderia(String tipoDeMercaderia) {
-        var retorno = false;
-
-        switch (tipoDeMercaderia) {
-            case "Muebles":
-                retorno = true;
-                break;
-            case "Electrodomesticos":
-                retorno = true;
-                break;
-            case "Alimentos":
-                retorno = true;
-                break;
-            case "Papeleria":
-                retorno = true;
-                break;
-            case "Bazar":
-                retorno = true;
-                break;
-            case "Ropa":
-                retorno = true;
-                break;
-            default:
-                System.out.println("Mercaderia no encontrada");
-                break;
-        }
-
-        return retorno;
     }
 
     public List<Pedido> listar() {

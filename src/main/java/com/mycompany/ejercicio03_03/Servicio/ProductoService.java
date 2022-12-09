@@ -16,7 +16,7 @@ public interface ProductoService {
     public void crearProducto(Producto producto);
 
     public List<Producto> listar();
-    
+    public Producto buscarNombre(int nombre);
     
     
 }

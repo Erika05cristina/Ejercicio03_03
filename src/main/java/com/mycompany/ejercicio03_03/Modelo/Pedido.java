@@ -14,19 +14,19 @@ public class Pedido {
     private float totalSinIva;
     private String tipoDeMercaderia;
     private String observaciones;
-    private Producto nombreProducto;
+    private Producto codigoProducto;
     
     
 
     public Pedido(int codigoPedido, String nombreContador, float totalSinIva, 
-            String tipoDeMercaderia, String observaciones, Producto nombreProducto) {
+            String tipoDeMercaderia, String observaciones, Producto codigoProducto) {
         
         this.codigoPedido = codigoPedido;
         this.nombreContador = nombreContador;
         this.totalSinIva = totalSinIva;
         this.tipoDeMercaderia = tipoDeMercaderia;
         this.observaciones = observaciones;
-        this.nombreProducto = nombreProducto;
+        this.codigoProducto = codigoProducto;
     }
 
     public int getCodigoPedido() {
@@ -69,12 +69,12 @@ public class Pedido {
         this.observaciones = observaciones;
     }
 
-    public Producto getNombreProducto() {
-        return nombreProducto;
+    public Producto getCodigoProducto() {
+        return codigoProducto;
     }
 
-    public void setNombreProducto(Producto nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public void setCodigoProducto(Producto nombreProducto) {
+        this.codigoProducto = nombreProducto;
     }
 
     @Override
@@ -82,11 +82,8 @@ public class Pedido {
         return "Pedido{" + "codigoPedido=" + codigoPedido + ", nombreContador=" 
                 + nombreContador + ", totalSinIva=" + totalSinIva 
                 + ", tipoDeMercaderia=" + tipoDeMercaderia + ", observaciones=" 
-                + observaciones + nombreProducto.getNombre() + '}';
+                + observaciones + codigoProducto.getCodigo()+ '}';
     }
-
-    
-    
-   
+  
     
 }

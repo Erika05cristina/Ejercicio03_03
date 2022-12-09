@@ -24,6 +24,7 @@ public class Producto {
         this.precio = precio;
         this.nombreProveedor = nombreProveedor;
     }
+    
 
     public int getCodigo() {
         return codigo;

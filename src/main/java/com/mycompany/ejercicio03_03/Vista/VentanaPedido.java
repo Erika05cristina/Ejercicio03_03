@@ -53,7 +53,7 @@ public class VentanaPedido extends javax.swing.JFrame {
 
         jLabel3.setText("Total sin IVA");
 
-        jLabel4.setText("Tipo de mercaderia");
+        jLabel4.setText("Mercaderia");
 
         jLabel5.setText("Observaciones");
 

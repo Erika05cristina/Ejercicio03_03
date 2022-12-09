@@ -27,5 +27,17 @@ public class ProductoServiceImpl implements ProductoService {
         return this.productoList;
         
     }
+   
+    @Override
+    public Producto buscarNombre(int codigo) {
+      Producto retorno=null;
+        for(var producto:this.productoList){
+            if(codigo==producto.getCodigo()){
+                retorno=producto;
+                break;
+            }
+        }
+        return retorno;
+    }
     
 }
