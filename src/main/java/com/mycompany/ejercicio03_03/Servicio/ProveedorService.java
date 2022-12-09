@@ -4,6 +4,7 @@
  */
 package com.mycompany.ejercicio03_03.Servicio;
 
+import com.mycompany.ejercicio03_03.Modelo.Pedido;
 import com.mycompany.ejercicio03_03.Modelo.Producto;
 import com.mycompany.ejercicio03_03.Modelo.Proveedor;
 import java.util.List;
@@ -15,7 +16,8 @@ import java.util.List;
 public interface ProveedorService {
 
     public void crearProveedor(Proveedor proveedor);
-    public Producto buscarProducto(Producto producto);
+    public Pedido buscarProducto(Pedido pedido);
+    
 
     public List<Proveedor> listar();
 

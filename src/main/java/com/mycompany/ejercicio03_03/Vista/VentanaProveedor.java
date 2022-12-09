@@ -77,6 +77,11 @@ public class VentanaProveedor extends javax.swing.JFrame {
         });
 
         btMostrar.setText("Mostrar");
+        btMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMostrarActionPerformed(evt);
+            }
+        });
 
         cbHoraIngreso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", " " }));
 
@@ -197,6 +202,14 @@ public class VentanaProveedor extends javax.swing.JFrame {
     private void txtCodigoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoPedidoActionPerformed
+
+    private void btMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMostrarActionPerformed
+         for (var producto : this.proveedorControl.listar()) {
+            System.out.println(this.proveedorControl.listar().get(0).getNombre());
+
+        }
+       // this.limpiarDatosIngresados();
+    }//GEN-LAST:event_btMostrarActionPerformed
 
     /**
      * @param args the command line arguments

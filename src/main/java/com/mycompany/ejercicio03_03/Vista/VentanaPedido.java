@@ -12,8 +12,8 @@ import com.mycompany.ejercicio03_03.Modelo.Pedido;
  * @author Usuario R
  */
 public class VentanaPedido extends javax.swing.JFrame {
+
     private pedidoControl pedidoControl = new pedidoControl();
-    
 
     /**
      * Creates new form VentanaPedido
@@ -168,7 +168,11 @@ public class VentanaPedido extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btMostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMostarActionPerformed
+        for (var producto : this.pedidoControl.listar()) {
+            System.out.println(this.pedidoControl.listar().get(0).getCodigoPedido());
 
+        }
+        // this.limpiarDatosIngresados();
 
     }//GEN-LAST:event_btMostarActionPerformed
 
@@ -179,8 +183,8 @@ public class VentanaPedido extends javax.swing.JFrame {
         dataPedido[2] = this.txtTotalSinIva.getText();
         dataPedido[3] = this.txtTipoMercaderia.getText();
         dataPedido[4] = this.txtObservaciones.getText();
-        
-        
+
+
     }//GEN-LAST:event_btGuardarActionPerformed
     private void limpiarDatosIngresados() {
         this.txtCodigo.setText("");
@@ -190,8 +194,6 @@ public class VentanaPedido extends javax.swing.JFrame {
         this.txtObservaciones.setText("");
 
     }
-
-
 
     /**
      * @param args the command line arguments
